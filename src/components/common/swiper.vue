@@ -10,6 +10,7 @@
             <span></span>
             <span></span>
             <span></span>
+            <span class="novisi"></span>
         </div>
         <span class="btn1">&lt;</span>
         <span class="btn2">&gt;</span>
@@ -87,9 +88,13 @@ export default {
     display: inline-block;
     width: 15px;
     height: 15px;
-    background: orangered;
+    background: orange;
     border-radius: 50%;
     margin: 0 10px;
+}
+
+.novisi{
+    display: none;
 }
 
 .btn1,.btn2{
@@ -111,6 +116,7 @@ export default {
     left: 5px;
 
 }
+
 
 .btn2{
     right: 5px;

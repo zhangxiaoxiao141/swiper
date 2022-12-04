@@ -13,7 +13,8 @@ export class Swiper{
         this.swiperItem = document.querySelectorAll(this.$options.swiperItem)
         this.page = document.querySelector(this.$options.page).children
         this.btn1 = document.querySelector(this.$options.btn1)
-        this.btn2 = document.querySelector(this.$options.btn2)
+        this.btn2 = document.querySelector(this.$options.btn2);
+        [...this.page][0].style.backgroundColor = "red"
     }
 
     __pageEvent(){
@@ -55,10 +56,24 @@ export class Swiper{
         this.timer = setInterval(() => {
             this.content.style.transition = "all .7s"
             if(this.$current == 4){
-                this.content.style.transition = ""
+                this.content.style.transition = "",
+                [...this.page][0].style.backgroundColor = "red"
             }
             this.$current = (this.$current + 1) % 5
             this.__content()
+            this.__pageselect()
         },3000)
+    }
+
+    __pageselect(){
+        [...this.page][(this.$current - 1 + this.swiperItem.length) % (this.swiperItem.length)].style.backgroundColor = "orange";
+        if(this.$current == this.swiperItem.length - 1){
+            [...this.page][0].style.backgroundColor = "red"
+
+        }
+        else{
+            [...this.page][this.$current].style.backgroundColor = "red"
+        }
+
     }
 }
