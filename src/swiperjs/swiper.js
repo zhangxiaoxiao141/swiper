@@ -55,11 +55,11 @@ export class Swiper{
     __thetime(){
         this.timer = setInterval(() => {
             this.content.style.transition = "all .7s"
-            if(this.$current == 4){
+            if(this.$current == this.swiperItem.length - 1){
                 this.content.style.transition = "",
                 [...this.page][0].style.backgroundColor = "red"
             }
-            this.$current = (this.$current + 1) % 5
+            this.$current = (this.$current + 1) % this.swiperItem.length
             this.__content()
             this.__pageselect()
         },3000)
